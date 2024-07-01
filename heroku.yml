@@ -1,0 +1,13 @@
+build:
+  docker:
+    web: Dockerfile
+
+release:
+  # If you have release tasks like database migrations, specify them here
+  # For Flask applications, you might use Flask-Migrate with Alembic
+  command:
+    - flask db upgrade
+    - echo "Release tasks completed"
+
+run:
+  web: gunicorn app:app
