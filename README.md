@@ -30,6 +30,26 @@ BookHub is a web application built with Python and Flask that provides personali
   - **`book_details.html`:** Page displaying detailed information about a specific book.
 - **`static/`:** Directory containing static assets like CSS files and images.
 
+### Setup Instructions
+
+- Clone the repository:
+
+ ```bash
+ git clone https://github.com/Gideon-Yebei/BookHub.git
+ ```
+
+- Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+- Run the Flask application:
+
+```bash
+python app.py
+```
+
 ### Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your proposed changes.
