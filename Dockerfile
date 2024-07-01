@@ -1,20 +1,23 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use the official Python image from the Docker Hub
+FROM python:3.10-slim
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
+# Copy the requirements file to the working directory
+COPY requirements.txt requirements.txt
 
-# Install any needed packages specified in requirements.txt
+# Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 8000 available to the world outside this container
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose the port the app runs on
 EXPOSE 8000
 
 # Define environment variable
-ENV NAME World
+ENV FLASK_APP=app.py
 
-# Run app.py when the container launches
+# Run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
