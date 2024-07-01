@@ -1,5 +1,8 @@
-from flask import Flask, render_template
+import sys
+sys.path.append('/app')  # Ensure the directory containing `extensions.py` is in the Python path
+
 from extensions import db
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.config.from_object('configs.config.Config')
